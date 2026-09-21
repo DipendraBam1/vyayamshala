@@ -1,0 +1,168 @@
+// use prisma-next
+
+enum Role {
+  ADMIN
+  TRAINER
+  MEMBER
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  password  String
+  name      String
+  role      Role     @default(MEMBER)
+
+  member    Member?
+  trainer   Trainer?
+
+  createdAt TimestamptzString @default(now())
+  updatedAt temporal.updatedAtString()
+}
+
+model Member {
+  id        Int      @id @default(autoincrement())
+  userId    Int      @unique
+  phone     String?
+  address   String?
+
+  user        User         @relation(fields: [userId], references: [id])
+  memberships Membership[]
+  attendances Attendance[]
+  reviews Review[]
+  createdAt TimestamptzString @default(now())
+  updatedAt temporal.updatedAtString()
+}
+
+model Trainer {
+  id        Int      @id @default(autoincrement())
+  userId    Int      @unique
+  phone     String?
+  specialty String?
+  profileImage String?
+  user      User     @relation(fields: [userId], references: [id])
+
+  exercises Exercise[]
+  dietPlans DietPlan[]
+  createdAt TimestamptzString @default(now())
+  updatedAt temporal.updatedAtString()
+}
+enum DurationUnit {
+  DAY
+  WEEK
+  MONTH
+  YEAR
+}
+model MembershipPlan {
+  id           Int          @id @default(autoincrement())
+  name         String       @unique
+  duration     Int
+  durationUnit DurationUnit
+  price        Decimal
+  description  String?
+
+  memberships Membership[]
+
+  createdAt TimestamptzString @default(now())
+  updatedAt temporal.updatedAtString()
+}
+
+model Membership {
+  id        Int      @id @default(autoincrement())
+  memberId  Int
+  planId    Int
+  startDate String
+  endDate   String
+  status    String   @default("ACTIVE")
+
+  member  Member          @relation(fields: [memberId], references: [id])
+  plan    MembershipPlan  @relation(fields: [planId], references: [id])
+  payments Payment[]
+
+  createdAt TimestamptzString @default(now())
+  updatedAt temporal.updatedAtString()
+}
+model Payment {
+  id            Int      @id @default(autoincrement())
+  membershipId  Int
+  amount        Decimal
+  paymentDate   String
+  method        String
+  status        String   @default("COMPLETED")
+  transactionId String?
+
+  membership Membership @relation(fields: [membershipId], references: [id])
+
+  createdAt TimestamptzString @default(now())
+  updatedAt temporal.updatedAtString()
+}
+model Attendance {
+  id         Int      @id @default(autoincrement())
+  memberId   Int
+  date       String
+  checkIn    String
+  checkOut   String?
+
+  member Member @relation(fields: [memberId], references: [id])
+
+  createdAt TimestamptzString @default(now())
+  updatedAt temporal.updatedAtString()
+}
+model Exercise {
+  id          Int      @id @default(autoincrement())
+  trainerId   Int
+  name        String   @unique
+  description String?
+  muscleGroup String?
+
+  trainer Trainer @relation(fields: [trainerId], references: [id])
+
+  createdAt TimestamptzString @default(now())
+  updatedAt temporal.updatedAtString()
+}
+model DietPlan {
+  id          Int      @id @default(autoincrement())
+  trainerId   Int
+  name        String   @unique
+  description String?
+  calories    Int?
+  protein     Decimal?
+  carbs       Decimal?
+  fats        Decimal?
+
+  trainer Trainer @relation(fields: [trainerId], references: [id])
+
+  createdAt TimestamptzString @default(now())
+  updatedAt temporal.updatedAtString()
+}
+
+model Service {
+  id          Int      @id @default(autoincrement())
+  name        String   @unique
+  icon        String
+
+  createdAt   TimestamptzString @default(now())
+  updatedAt   temporal.updatedAtString()
+}
+model Review {
+  id        Int    @id @default(autoincrement())
+  memberId  Int
+
+  review    String
+  rating    Int
+  image1    String?
+  image2    String?
+
+  member    Member @relation(fields: [memberId], references: [id])
+
+  createdAt TimestamptzString @default(now())
+  updatedAt temporal.updatedAtString()
+}
+model JoinRequest {
+  id        Int    @id @default(autoincrement())
+  name      String
+  phone     String
+
+  createdAt TimestamptzString @default(now())
+  updatedAt temporal.updatedAtString()
+}
