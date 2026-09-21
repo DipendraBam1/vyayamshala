@@ -4,7 +4,6 @@ import authRoutes from "./routes/auth.routes.js";
 import serviceRoutes from "./routes/service.routes.js";
 import joinRequestRoutes from "./routes/joinRequest.routes.js";
 
-import membershipPlanRoutes from "./routes/membershipplan.routes.js";
 
 const app = express();
 
@@ -27,6 +26,4 @@ app.get("/api/health", (_req, res) => {
 app.use("/api/auth", authRoutes);
 app.use("/api/services", serviceRoutes);
 app.use("/api/join-requests", joinRequestRoutes);
-
-app.use("/api/membership-plans", membershipPlanRoutes);
 export default app;
