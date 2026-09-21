@@ -29,11 +29,7 @@ const upload = multer({
   },
 });
 
-router.get(
-  "/",
-  authenticate,
-  getTrainersController,
-);
+router.get("/", getTrainersController);
 
 router.post(
   "/",
