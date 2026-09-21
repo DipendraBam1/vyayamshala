@@ -26,7 +26,7 @@ export default function Navbar() {
         </div>
 
         {/* Navigation */}
-        <div className="flex items-center gap-[22px] font-serif text-[14px] md:gap-[45px]">
+        <div className="flex flex-wrap items-center justify-end gap-x-3 gap-y-1 font-serif text-[12px] sm:gap-x-4 sm:text-[13px] md:gap-x-[45px] md:text-[14px]">
           {/* Home */}
           <a
             href="#"

@@ -28,14 +28,6 @@ export default function Footer() {
                 Team
               </a>
 
-              <a href="#faqs" className="transition hover:text-primary">
-                FAQs
-              </a>
-
-              <a href="#careers" className="transition hover:text-primary">
-                Careers
-              </a>
-
               <a href="#contact" className="transition hover:text-primary">
                 Contact Us
               </a>
