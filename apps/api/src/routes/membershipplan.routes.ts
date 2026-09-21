@@ -1,12 +1,14 @@
 import { Router } from "express";
+
 import {
   createPlan,
   getPlans,
-    updatePlan,
+  updatePlan,
   deletePlan,
-} from "../controllers/membershipplan.controller";
-import { authenticate } from "../middlewares/auth.middleware";
-import { authorize } from "../middlewares/role.middleware";
+} from "../controllers/membershipplan.controller.js";
+
+import { authenticate } from "../middlewares/auth.middleware.js";
+import { authorize } from "../middlewares/role.middleware.js";
 
 const router = Router();
 
@@ -37,4 +39,5 @@ router.delete(
   authorize("ADMIN"),
   deletePlan,
 );
+
 export default router;
