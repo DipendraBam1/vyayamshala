@@ -32,7 +32,6 @@ const upload = multer({
 router.get(
   "/",
   authenticate,
-  authorize("ADMIN"),
   getTrainersController,
 );
 

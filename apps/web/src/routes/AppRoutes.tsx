@@ -47,7 +47,7 @@ export default function AppRoutes() {
           <Route path="memberships" element={<Memberships />} />
           <Route path="attendance" element={<Attendance />} />
           <Route path="services" element={<Services />} />
-          <Route path="/admin/join-requests" element={<JoinRequests />} />
+          <Route path="join-requests" element={<JoinRequests />} />
         </Route>
 
         <Route
