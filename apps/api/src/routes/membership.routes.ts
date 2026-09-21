@@ -7,7 +7,7 @@ import {
   deleteMembershipController,
   cancelMembershipController,
 } from "../controllers/membership.controller.js";
-import { authenticate } from "../middlewares/auth.middleware";
+import { authenticate } from "../middlewares/auth.middleware.js";
 import { authorize } from "../middlewares/role.middleware.js";
 
 const router = Router();
