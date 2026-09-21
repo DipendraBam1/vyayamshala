@@ -5,9 +5,9 @@ import {
   getDietPlans,
   updateDietPlan,
   deleteDietPlan,
-} from "../services/dietplan.service";
-import { db } from "../prisma/db";
-import { AuthRequest } from "../middlewares/auth.middleware";
+} from "../services/dietplan.service.js";
+import { db } from "../prisma/db.js";
+import { AuthRequest } from "../middlewares/auth.middleware.js";
 
 export async function createDietPlanController(
   req: AuthRequest,

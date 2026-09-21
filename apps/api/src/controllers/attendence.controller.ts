@@ -1,5 +1,5 @@
 import type { Response } from "express";
-import type { AuthRequest } from "../middlewares/auth.middleware";
+import type { AuthRequest } from "../middlewares/auth.middleware.js";
 import { db } from "../prisma/db.js";
 
 import {
@@ -7,7 +7,7 @@ import {
   checkOut,
   getAttendance,
   getMemberAttendance,
-} from "../services/attendence.service";
+} from "../services/attendence.service.js";
 
 export async function checkInController(
   req: AuthRequest,

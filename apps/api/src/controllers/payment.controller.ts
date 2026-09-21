@@ -3,7 +3,7 @@ import {
   createPayment,
   getPayments,
   updatePayment,
-} from "../services/payments.service";
+} from "../services/payments.service.js";
 
 export async function createPaymentController(
   req: Request,
