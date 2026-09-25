@@ -145,7 +145,7 @@ export default function DietPlans() {
             setEditingPlan(null);
             setShowForm(true);
           }}
-          className="rounded-lg bg-primary px-5 py-3 font-medium text-black transition hover:opacity-90"
+          className="rounded-xl bg-primary px-3 py-3 font-medium text-black transition hover:opacity-90 sm:px-5"
         >
           + Add Diet Plan
         </button>
@@ -284,7 +284,7 @@ export default function DietPlans() {
         </div>
       ) : (
         <div className="overflow-x-auto rounded-xl border border-gray-800">
-          <table className="w-full">
+          <table className="w-full min-w-200">
             <thead className="bg-gray-950">
               <tr className="border-b border-gray-800 text-left text-sm text-gray-400">
                 <th className="px-6 py-4">Name</th>

@@ -156,7 +156,7 @@ export default function Exercises() {
 
         <button
           onClick={handleAdd}
-          className="rounded-full bg-primary px-6 py-3 font-medium text-black transition hover:opacity-90"
+          className="rounded-lg bg-primary px-2 py-3 font-medium text-black transition hover:opacity-90 sm:px-5"
         >
           + Add Exercise
         </button>

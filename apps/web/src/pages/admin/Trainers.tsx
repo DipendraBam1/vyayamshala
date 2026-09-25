@@ -281,8 +281,8 @@ export default function Trainers() {
       />
 
       {/* Trainers table */}
-      <div className="overflow-hidden rounded-xl border border-gray-800">
-        <table className="w-full">
+      <div className="overflow-x-auto rounded-xl border border-gray-800">
+        <table className="w-full min-w-200">
           <thead className="bg-gray-950">
             <tr className="text-left text-sm text-gray-400">
               <th className="px-6 py-4">Trainer</th>

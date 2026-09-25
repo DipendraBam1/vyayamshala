@@ -363,8 +363,8 @@ export default function Memberships() {
 
       {/* Table */}
 
-      <div className="overflow-hidden rounded-xl bg-white text-black shadow ">
-        <table className="w-full">
+      <div className="overflow-x-auto rounded-xl bg-white text-black shadow ">
+        <table className="w-full min-w-200">
           <thead className="bg-gray-100">
             <tr>
               <th className="p-4 text-left">Member</th>
